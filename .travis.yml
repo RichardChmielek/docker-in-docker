@@ -1,9 +1,19 @@
 sudo: required
-
-language: ruby
+language: python
+python:
+  - 2.7
 
 services:
   - docker
 
-before_install:
+install:
   - docker build -t docker-in-docker:latest .
+  - docker run -d -p 127.0.0.1:80:80 --name docker-in-docker docker-in-docker
+
+before_script:
+  - pip install mock
+  - pip install requests
+  - pip install feedparser
+
+script:
+  - docker ps | grep -q blog
