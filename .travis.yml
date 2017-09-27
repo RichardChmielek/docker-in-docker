@@ -16,4 +16,4 @@ before_script:
   - pip install feedparser
 
 script:
-  - docker ps | grep -q blog
+  - docker ps | grep -q docker-in-docker
