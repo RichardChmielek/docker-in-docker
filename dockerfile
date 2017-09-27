@@ -6,8 +6,9 @@
 FROM ubuntu
 
 # Update
-RUN apt-get update -y
-RUN apt-get upgrade -y
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+# Install add-apt-repository
+RUN apt-get install software-properties-common python-software-properties -y
 # Install nano
 RUN apt-get install nano -y
 # Install curl
@@ -22,7 +23,6 @@ RUN apt-get update
 RUN apt-cache policy docker-ce
 RUN apt-get install docker-ce -y
 # Add nginx repository
-RUN apt-get install software-properties-common python-software-properties -y
 RUN add-apt-repository -y ppa:nginx/stable
 # Install NGINX
 RUN apt-get install nginx -y
