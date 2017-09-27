@@ -1,5 +1,7 @@
 # docker-in-docker
 
+[![Build Status](https://travis-ci.org/RichardChmielek/docker-in-docker.svg?branch=master)](https://travis-ci.org/RichardChmielek/docker-in-docker)
+
 ## build
 
 ````docker
