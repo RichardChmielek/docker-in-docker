@@ -11,13 +11,13 @@ docker build --rm -f dockerfile -t docker-in-docker:latest .
 ## run
 
 ````docker
-docker run --name docker_i-in-docker docker-in-docker
+docker run --name docker-in-docker docker-in-docker
 ````
 
 ## bash into container
 
 ````docker
-docker exec -it docker_in_docker bash
+docker exec -it docker-in-docker bash
 ````
 
 ## check docker version
