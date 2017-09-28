@@ -3,10 +3,12 @@
 # Based on ubuntu
 ############################################################
 # Set the base image to ubuntu
-FROM ubuntu
+FROM ubuntu:17.04
 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 # Update
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get update && apt-get install -y
+RUN apt-get install dialog apt-utils -y
 # Install add-apt-repository
 RUN apt-get install software-properties-common python-software-properties -y
 # Install nano
@@ -14,7 +16,7 @@ RUN apt-get install nano -y
 # Install curl
 RUN apt-get install curl -y
 # Install HTTPS transport
-RUN apt-get install apt-transport-https
+RUN apt-get install apt-transport-https -y
 # Add docker repository
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
